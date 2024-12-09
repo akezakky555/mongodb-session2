@@ -1,0 +1,33 @@
+services:
+    mongodb01:
+        image: mongodb/mongodb-community-server:6.0.19-ubi9
+        container_name: mongodb01
+        ports:
+            - "28017:27017"
+        volumes:
+            - /root/docker/mongod01/config/mongod.conf:/etc/mongod.conf
+            - /root/docker/mongod01/data:/data/db
+            - /root/docker/mongod01/log:/var/log/mongodb
+        command: mongod --config /etc/mongod.conf
+    mongodb02:
+        image: mongodb/mongodb-community-server:6.0.19-ubi9
+        container_name: mongodb02
+        ports:
+            - "28117:27017"
+        volumes:
+            - /root/docker/mongod02/config/mongod.conf:/etc/mongod.conf
+            - /root/docker/mongod02/data:/data/db
+            - /root/docker/mongod02/log:/var/log/mongodb
+        command: mongod --config /etc/mongod.conf
+    mongodb03:
+        image: mongodb/mongodb-community-server:6.0.19-ubi9
+        container_name: mongodb03
+        ports:
+            - "28217:27017"
+        volumes:
+            - /root/docker/mongod03/config/mongod.conf:/etc/mongod.conf
+            - /root/docker/mongod03/data:/data/db
+            - /root/docker/mongod03/log:/var/log/mongodb
+        command: mongod --config /etc/mongod.conf
+
+
