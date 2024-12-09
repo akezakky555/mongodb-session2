@@ -1,0 +1,14 @@
+/var/log/mongodb/*.log
+{
+   rotate 30
+   daily
+   missingok
+   create 0666 mongod mongod
+   delaycompress
+   compress
+   dateext
+   sharedscripts
+   postrotate
+   systemctl kill -s USR1 mongod
+   endscript
+}
